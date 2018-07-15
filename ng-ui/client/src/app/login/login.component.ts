@@ -4,18 +4,19 @@ import { HttpClient } from '../../../node_modules/@angular/common/http';
 import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
-  templateUrl: './login.component.html',
+  templateUrl: './login.component.html'
 })
 export class LoginComponent {
 
-  credentials = {username:'',password:''}
+  credentials = {username: '', password: ''};
 
-  constructor(private app: AppService, private http: HttpClient, private router: Router) { }
+  constructor(private app: AppService, private http: HttpClient, private router: Router) {
+  }
 
-  login(){
+  login() {
     this.app.authenticate(this.credentials, () => {
-      this.router.navigateByUrl('/');
-    })
+        this.router.navigateByUrl('/');
+    });
     return false;
   }
 

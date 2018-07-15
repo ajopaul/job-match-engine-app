@@ -1,0 +1,48 @@
+<div class="container">
+    <br/>
+    <div class="row">
+        <div class="form-group">
+          <div class="col-sm-2 col-xs-4">
+            <label>Worker ID</label>
+          </div>
+          <div class="col-sm-4 col-xs-8">
+            <input type="text" class="form-control" [(ngModel)]="workerId">
+          </div>
+          <div class="col-sm-12 col-xs-3">
+            <button type="button" class="btn btn-default" (click)="getJobMatchList()">Get Jobs</button>
+          </div>
+        </div>
+    </div>
+    <br/>
+    <div class="row" *ngIf="error.message">
+      <div class="col-sm-6">
+        <div class="alert alert-warning">
+            <strong>{{error.message}}</strong>
+          </div>
+      </div>
+    </div>
+
+    <br/>
+    <div class="row">
+      <div class="col-sm-6 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Job Listing</div>
+            <table class="table table-hover table-responsive table-bordered">
+              <thead class="table-bordered">
+                <th style="padding-left: 5px;">Company</th>
+                <th>Job Title</th>
+                <th>Bill Rate</th>
+              </thead>
+                <tbody>
+                  <tr *ngFor="let job of jobs">
+                    <td>{{job.company}}</td>
+                    <td>{{job.jobTitle}}</td>
+                    <td>{{job.billRate}}</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+      </div>
+    </div>
+      
+  </div>

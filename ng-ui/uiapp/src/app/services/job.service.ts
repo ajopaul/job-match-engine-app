@@ -12,8 +12,8 @@ export class JobService {
 
   private baseUrl = '/api';
 
-  getJobMatchList(workerId): Promise<Job[]>{
-    return this.http.get<Job[]>('/jobengine/jobmatch/'+workerId)
+  getJobMatchList(workerId): Promise<any>{
+    return this.http.get<any>('/jobengine/jobmatch/'+workerId)
       .toPromise().catch(this.handleError);
   }
 

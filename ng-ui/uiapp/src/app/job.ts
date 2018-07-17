@@ -10,4 +10,5 @@ export class Job {
     company: string;
     guid: string;
     jobId: number;
+    distanceToMe: number;
 }

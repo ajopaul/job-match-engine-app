@@ -22,22 +22,19 @@ export class JobMatchComponent implements OnInit {
   }
 
   getJobMatchList(): void {
+    this.jobs = [];
     this.error.message = '';
       this.jobService.getJobMatchList(this.workerId).then(
-      jobs => { 
-            console.log("Recieved object "+jobs);
-              if(jobs instanceof Array){
-              this.jobs = jobs;
-              }else{  
-                this.error = jobs;
-              }
-            },errorMsg => {
-                console.log("Received error");
-                console.log(errorMsg);
-                if(errorMsg.error && errorMsg.error.errors){
-                  this.error.message = "Error occured!. "+errorMsg.error.errors[0];
-                }else if (errorMsg.error.error){
-                  this.error.message = "Error occured!. "+errorMsg.error.error;
+      res => { 
+            console.log("Recieved object: "+res);
+              this.jobs = res.data;
+              this.error.message = res.errorMessage;
+            },errRes => {
+                console.log("Received error: "+errRes);
+                if(errRes.error.errorMessage){
+                  this.error.message = errRes.error.errorMessage;
+                }else if(errRes.error && errRes.error.error){
+                  this.error.message = errRes.error.error;
                 }
                 
             }

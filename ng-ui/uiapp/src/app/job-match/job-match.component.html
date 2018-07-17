@@ -31,12 +31,14 @@
               <thead class="table-bordered">
                 <th style="padding-left: 5px;">Company</th>
                 <th>Job Title</th>
+                <th>Distance to Me</th>
                 <th>Bill Rate</th>
               </thead>
                 <tbody>
                   <tr *ngFor="let job of jobs">
                     <td>{{job.company}}</td>
                     <td>{{job.jobTitle}}</td>
+                    <td>{{job.distanceToMe}}</td>
                     <td>{{job.billRate}}</td>
                   </tr>
                 </tbody>
